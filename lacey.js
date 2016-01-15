@@ -37,6 +37,15 @@
     return this[module_name];
   };
 
+  LaceyApp.prototype.unregister_module = function (module_name) {
+    validate_module_name.call(this, module_name);
+
+    modules[module_name] = null;
+    this[module_name] = null;
+
+    return this;
+  };
+
   LaceyModule = function (module_name, parent_module, Module) {
     var instance = null;
 
