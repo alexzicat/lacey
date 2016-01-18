@@ -24,16 +24,23 @@
     "modular"
   ],
   "author": [
-    { "name":"Alexandre Zicat",
+    {
+      "name": "Alexandre Zicat",
       "email": "dev.alexzicat@gmail.com",
       "license": "ISC",
       "bugs": {
         "url": "https://github.com/alexzicat/lacey/issues"
       }
     },
-    { "name":"Olivier Monvoisin",
+    {
+      "name": "Olivier Monvoisin",
       "email": "oliviermonvoisin@gmail.com",
       "license": "ISC"
     }
-  ]
+  ],
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-insert": "^0.5.0"
+  }
 }
