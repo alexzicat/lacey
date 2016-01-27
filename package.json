@@ -10,6 +10,7 @@
     "type": "git",
     "url": "https://github.com/alexzicat/lacey.git"
   },
+  "main": "dist/lacey.js",
   "keywords": [
     "javascript",
     "module",
