@@ -2,7 +2,7 @@
   "name": "lacey",
   "version": "1.0.0",
   "description": "A small javascript library for module oriented development",
-  "main": "lacey.js",
+  "main": "dist/lacey.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +10,6 @@
     "type": "git",
     "url": "https://github.com/alexzicat/lacey.git"
   },
-  "main": "dist/lacey.js",
   "keywords": [
     "javascript",
     "module",
