@@ -31,11 +31,6 @@
       "bugs": {
         "url": "https://github.com/alexzicat/lacey/issues"
       }
-    },
-    {
-      "name": "Olivier Monvoisin",
-      "email": "oliviermonvoisin@gmail.com",
-      "license": "ISC"
     }
   ],
   "devDependencies": {
