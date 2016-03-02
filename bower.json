@@ -1,0 +1,28 @@
+{
+  "name": "lacey",
+  "description": "A small javascript library for module oriented development",
+  "main": "dist/lacey.js",
+  "authors": [
+    "Alexandre Zicat <dev.alexzicat@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "javascript",
+    "module",
+    "singleton",
+    "register",
+    "register_module",
+    "initialize",
+    "initializer",
+    "lacey",
+    "app_lacey",
+    "app",
+    "modular"
+  ],
+  "ignore": [
+	  "*/.",
+	  "*.json",
+	  "app"
+  ],	
+  "homepage": "https://github.com/alexzicat/lacey"
+}
