@@ -86,7 +86,7 @@ LaceyModule = function (module_name, parent_module, Module) {
 
   this.get_instance = function () {
     if (instance === null) {
-      if (parent_module !== null) {
+      if (parent_module !== null && parent_module !== module_name) {
         validate_parent_module_name.call(this, parent_module);
         Module.inherits_from(modules[parent_module]);
       }

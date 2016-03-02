@@ -2,6 +2,7 @@ Array.prototype.flatten = function () {
   [].concat.apply([], this);
 };
 
+
 Object.prototype.has_parent = Object.prototype.is_child = false;
 
 Object.prototype.inherits_from = function (klass) {
@@ -9,6 +10,7 @@ Object.prototype.inherits_from = function (klass) {
   this.prototype.constructor = this;
   this.prototype.is_child = this.prototype.has_parent = true;
 };
+
 
 var LaceyApp,
   LaceyModule,
@@ -98,7 +100,7 @@ LaceyModule = function (module_name, parent_module, Module) {
 
   this.get_instance = function () {
     if (instance === null) {
-      if (parent_module !== null) {
+      if (parent_module !== null && parent_module !== module_name) {
         validate_parent_module_name.call(this, parent_module);
         Module.inherits_from(modules[parent_module]);
       }
@@ -130,5 +132,6 @@ validate_parent_module_name = function (parent_module) {
 
   return true;
 };
+
 
 window.LaceyApp = LaceyApp;
