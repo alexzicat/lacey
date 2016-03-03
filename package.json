@@ -4,7 +4,7 @@
   "description": "A small javascript library for module oriented development",
   "main": "dist/lacey.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start"
   },
   "repository": {
     "type": "git",
@@ -41,6 +41,7 @@
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.19",
     "karma-chrome-launcher": "^0.2.2",
+    "karma-coverage": "^0.5.3",
     "karma-jasmine": "^0.3.6"
   }
 }
