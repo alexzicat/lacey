@@ -14,7 +14,7 @@
   gulp.task('concat', function () {
     return gulp.src(src.scripts)
       .pipe(concat('lacey.js', {
-        newLine: '\n\n'
+        newLine: '\n'
       }))
       .pipe(insert.append('\n\nwindow.LaceyApp = LaceyApp;'))
       .pipe(gulp.dest('./dist/'));

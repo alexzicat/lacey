@@ -71,7 +71,7 @@ validate_module_type = function (Module) {
 };
 
 validate_duplicated_module = function (module_name) {
-  if (this.modules[module_name] !== void 0) {
+if (this.modules.indexOf(module_name) !== -1) {
     throw 'DuplicateModuleError - your module has already been registered';
   }
 
@@ -103,7 +103,7 @@ LaceyModule = function (module_name, parent_module, Module) {
 LaceyModule.prototype.initialize = function () {
   var instance = this.get_instance();
 
-  if (!this.initialized && (instance.initialize !== null) && typeof instance.initialize === 'function') {
+  if (!this.initialized && typeof instance.initialize === 'function') {
     instance.initialize();
     this.initialized = true;
   }
@@ -112,8 +112,8 @@ LaceyModule.prototype.initialize = function () {
 };
 
 validate_parent_module_name = function (parent_module) {
-  if (modules[parent_module] === null) {
-    throw 'InvalidParentModule - the parent module does not exist';
+  if (typeof modules[parent_module] === 'undefined') {
+    throw 'InvalidParentModuleError - the parent module does not exist';
   }
 
   return true;

@@ -1,78 +1,93 @@
-describe('Object :: ', function () {
-  describe('inherits_from :: ', function () {
-    var ChildObject = function () {
-      this.name = 'alex';
-    };
+describe('Object', function () {
+  describe("When calling the 'inherits_from function'", function () {
+    var ChildObject;
 
-    describe('When the Object instance does not inherit from another Object :: ', function () {
-      var object = new ChildObject();
+    beforeAll(function () {
+      ChildObject = function () {
+        this.name = 'alex';
+      };
+    });
 
-      it('is not a child', function () {
+    describe('When the Object instance does not inherit from another Object', function () {
+      var object;
+
+      beforeAll(function () {
+        object = new ChildObject()
+      });
+
+      it('should not be a child', function () {
         expect(object.is_child).toBe(false);
       });
 
-      it('is does not have a parent', function () {
+      it('should not be a parent', function () {
         expect(object.has_parent).toBe(false);
       });
 
-      it("has an attribute name that returns 'alex'", function () {
+      it("should have an attribute 'name' that returns 'alex'", function () {
         expect(object.name).toBe('alex');
       });
 
-      it('does not have an attribute age', function () {
+      it("should not have an attribute 'age'", function () {
         expect(object.age).not.toBeDefined();
       });
     });
 
-    describe('When the Object instance inherits from another Object ::', function () {
-      describe('without params :: ', function () {
-        var ParentObject = function () {
-          this.age = 29;
-        };
+    describe('When the Object instance inherits from another Object', function () {
+      describe('Without receiving parameters', function () {
+        var ParentObject,
+          object;
 
-        ChildObject.inherits_from(ParentObject);
+        beforeAll(function () {
+          ParentObject = function () {
+            this.age = 29;
+          };
 
-        var object = new ChildObject();
+          ChildObject.inherits_from(ParentObject);
 
-        it('is a child', function () {
+          object = new ChildObject();
+        });
+
+        it('should be a child', function () {
           expect(object.is_child).toBe(true);
         });
 
-        it('has a parent', function () {
+        it('should have a parent', function () {
           expect(object.has_parent).toBe(true);
         });
 
-        it("has an attribute name that returns 'alex'", function () {
+        it("should have an attribute 'name' that returns 'alex'", function () {
           expect(object.name).toBe('alex');
         });
 
-        it("has an attribute age that returns 29", function () {
+        it("should have an attribute 'age' that returns 29", function () {
           expect(object.age).toBe(29);
         });
       });
 
-      describe('with params :: ', function () {
-        var ParentObject = function (age) {
-          this.age = age;
-        };
+      describe('With parameters', function () {
+        beforeAll(function () {
+          ParentObject = function (age) {
+            this.age = age;
+          };
 
-        ChildObject.inherits_from(ParentObject, 30);
+          ChildObject.inherits_from(ParentObject, 30);
 
-        var object = new ChildObject();
+          object = new ChildObject();
+        });
 
-        it('is a child', function () {
+        it('should be a child', function () {
           expect(object.is_child).toBe(true);
         });
 
-        it('has a parent', function () {
+        it('should have a parent', function () {
           expect(object.has_parent).toBe(true);
         });
 
-        it("has an attribute name that returns 'alex'", function () {
+        it("should have an attribute 'name' that returns 'alex'", function () {
           expect(object.name).toBe('alex');
         });
 
-        it("has an attribute age that returns 30", function () {
+        it("should have an attribute 'age' that returns 30", function () {
           expect(object.age).toBe(30);
         });
       });

@@ -1,8 +1,3 @@
-Array.prototype./ = function () {
-  [].concat.apply([], this);
-};
-
-
 Object.prototype.has_parent = Object.prototype.is_child = false;
 
 Object.prototype.inherits_from = function (klass) {
@@ -10,7 +5,6 @@ Object.prototype.inherits_from = function (klass) {
   this.prototype.constructor = this;
   this.prototype.is_child = this.prototype.has_parent = true;
 };
-
 
 var LaceyApp,
   LaceyModule,
