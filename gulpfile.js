@@ -3,6 +3,7 @@
 
   var gulp = require('gulp'),
     concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
     insert = require('gulp-insert'),
     KarmaServer = require('karma').Server,
     src = {
@@ -20,6 +21,14 @@
       .pipe(gulp.dest('./dist/'));
   });
 
+  gulp.task('compress', function () {
+    return gulp.src(src.scripts)
+      .pipe(concat('lacey.min.js'))
+      .pipe(insert.append('\n\nwindow.LaceyApp = LaceyApp;'))
+      .pipe(uglify())
+      .pipe(gulp.dest('dist'));
+  });
+
   gulp.task('test', function (done) {
     new KarmaServer({
       configFile: __dirname + '/karma.conf.js',
@@ -33,5 +42,5 @@
     }, done).start();
   });
 
-  gulp.task('default', function () {});
+  gulp.task('dist', ['concat', 'compress']);
 }());
