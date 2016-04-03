@@ -10,6 +10,15 @@ npm install lacey --save
 
 ### Install with Bower
 ```shell
-bower install --save
+bower install lacey --save
+```
+
+### Install with Ruby
+```shell
+gem install lacey
+```
+or add to the gemfile:
+```ruby
+gem 'lacey', '~> 1.0.0'
 ```
 
