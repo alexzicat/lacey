@@ -1,7 +1,23 @@
-Object.prototype.has_parent = Object.prototype.is_child = false;
+var object_prototype = Object.prototype;
 
-Object.prototype.inherits_from = function (klass) {
-  this.prototype = new (Function.bind.apply(klass, arguments))();
-  this.prototype.constructor = this;
-  this.prototype.is_child = this.prototype.has_parent = true;
-};
+Object.defineProperties(object_prototype, {
+  'has_parent': {
+    value: false,
+    writable: true,
+    enumerable: false
+  },
+
+  'is_child': {
+    value: false,
+    writable: true,
+    enumerable: false
+  },
+
+  'inherits_from': {
+    value: function (klass) {
+      this.prototype = new (Function.bind.apply(klass, arguments))();
+      this.prototype.constructor = this;
+      this.prototype.is_child = this.prototype.has_parent = true;
+    }
+  }
+});

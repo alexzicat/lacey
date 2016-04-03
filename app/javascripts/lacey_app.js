@@ -71,7 +71,7 @@ validate_module_type = function (Module) {
 };
 
 validate_duplicated_module = function (module_name) {
-if (this.modules.indexOf(module_name) !== -1) {
+  if (this.modules.indexOf(module_name) !== -1) {
     throw 'DuplicateModuleError - your module has already been registered';
   }
 

@@ -1,6 +1,6 @@
 {
   "name": "lacey",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A small javascript library for module oriented development",
   "main": "dist/lacey.js",
   "scripts": {
@@ -15,13 +15,13 @@
     "module",
     "singleton",
     "register",
-    "register_module",
-    "initialize",
-    "initializer",
     "lacey",
     "app_lacey",
     "app",
-    "modular"
+    "modular",
+    "design pattern",
+    "framework",
+    "small"
   ],
   "author": [
     {
