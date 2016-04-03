@@ -4,21 +4,16 @@
 laceyjs is a small javascript library for module oriented development.
 
 ### Install with npm
-```shell
-npm install lacey --save
-```
+  npm install lacey --save
 
 ### Install with Bower
-```shell
-bower install lacey --save
-```
+  bower install lacey --save
 
 ### Install with Ruby
-```shell
-gem install lacey
-```
+  gem install lacey-rails
+
 or add to the gemfile:
 ```ruby
-gem 'lacey', '~> 1.0.0'
+gem 'lacey-rails', '~> 1.0.0'
 ```
 
