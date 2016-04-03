@@ -16,11 +16,11 @@ There is many different options made available you can use to install the librar
 ### Install with Bower
     bower install lacey --save
 
-Once installed, add a script tag to your html header pointing to `dist/lacey.js`.
+Once installed, add a script tag to your html header pointing to `dist/lacey.js`.  
 You can also use the minified version: `dist/lacey.min.js`
 
 ### Install with Ruby
-The official gem that wraps the ***lacey*** library is [lacey-rails](https://github.com/alexzicat/lacey-rails).
+The official gem that wraps the ***lacey*** library is [lacey-rails](https://github.com/alexzicat/lacey-rails).  
 ***lacey-rails*** is a gemified version for an easier integration with the rails asset pipeline.
 
 Add this line to your application's Gemfile:
