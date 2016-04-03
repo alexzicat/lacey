@@ -1,20 +1,47 @@
 [![Build Status](https://travis-ci.org/alexzicat/lacey.svg?branch=master)](https://travis-ci.org/alexzicat/lacey)
 
 # Lacey
-Lacey is a small javascript library for module oriented development.
+***Lacey*** is a small javascript library for module oriented development.
 
-## Installations
+## Table of contents
+- [Quick start](#quick-start)
+- [How to use](#how-to-use)
+
+## Quick start
+There is many different options made available you can use to install the library to your project.
+
 ### Install with npm
     npm install lacey --save
 
 ### Install with Bower
     bower install lacey --save
 
-### Install with Ruby
-    gem install lacey-rails
+Once installed, add a script tag to your html header pointing to `dist/lacey.js`.
+You can also use the minified version: `dist/lacey.min.js`
 
-or add to the gemfile:
+### Install with Ruby
+The official gem that wraps the ***lacey*** library is [lacey-rails](https://github.com/alexzicat/lacey-rails).
+***lacey-rails*** is a gemified version for an easier integration with the rails asset pipeline.
+
+Add this line to your application's Gemfile:
+
 ```ruby
 gem 'lacey-rails', '~> 1.0.0'
 ```
+
+And then execute:
+    
+    bundle install
+    
+Or install it yourself as:
+
+    gem install lacey-rails
+
+Add the following directive to your Javascript manifest file (application.js):
+```ruby
+//= require lacey
+```
+The ***lacey-rails*** gem provides no minified version of the library and lets the asset pipeline take care of the job.
+
+## How to use
 
