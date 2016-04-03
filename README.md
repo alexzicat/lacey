@@ -11,10 +11,14 @@
 There is many different options made available you can use to install the library to your project.
 
 ### Install with npm
-    npm install lacey --save
-
+```shell
+npm install lacey --save
+```
+ 
 ### Install with Bower
-    bower install lacey --save
+```shell
+bower install lacey --save
+```
 
 Once installed, add a script tag to your html header pointing to `dist/lacey.js`.  
 You can also use the minified version: `dist/lacey.min.js`
@@ -30,12 +34,14 @@ gem 'lacey-rails', '~> 1.0.0'
 ```
 
 And then execute:
-    
-    bundle install
+```shell
+bundle install
+````
     
 Or install it yourself as:
-
-    gem install lacey-rails
+```shell
+gem install lacey-rails
+````
 
 Add the following directive to your Javascript manifest file (application.js):
 ```ruby
