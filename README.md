@@ -5,9 +5,9 @@
 ## Table of contents
 - [Quick start](#quick-start)
 - [How to use](#how-to-use)
-    * [Project Structure](#project_structure)
-    * [Creating the app](#creating_the_app)
-    * [Registering modules](#registering_modules)
+    * [Project Structure](#project-structure)
+    * [Creating the app](#creating-the-app)
+    * [Registering modules](#registering-modules)
 
 ## Quick start
 There is many different options you can use to install the library to your project.
