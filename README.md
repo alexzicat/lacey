@@ -5,6 +5,9 @@
 ## Table of contents
 - [Quick start](#quick-start)
 - [How to use](#how-to-use)
+    * [Project Structure](#project_structure)
+    * [Creating the app](#creating_the_app)
+    * [Registering modules](#registering_modules)
 
 ## Quick start
 There is many different options you can use to install the library to your project.
@@ -49,7 +52,9 @@ Add the following directive to your Javascript manifest file (application.js):
 The ***lacey-rails*** gem provides no minified version of the library and lets the asset pipeline take care of the job.
 
 ## How to use
-Once the library is installed, you are now ready to create a ***lacey*** app.  
+Once the library is installed, you are now ready to create a ***lacey*** app: 
+
+#### Project Structure
 A ***lacey*** project is structured as follows:
 ```
 javascripts/
@@ -60,8 +65,28 @@ javascripts/
 ```
 **The project structure proposed is not required, only recommended.*  
 
+#### Creating the app
 You can now create your *app.js* file.  
-This file contains only the following line of code:
+This file contains :
 ```javascript
 window.app = new LaceyApp('name_of_your_app');
 ```
+
+Your app serves the purpose of registering modules. It acts as the glue that binds you modules together.
+
+**The available methods are:**
+
+```javascript
+app.name; // returns the name of the app (ex: 'name_of_your_app')
+```
+```javascript
+app.modules; // returns an array of registered modules
+```
+```javascript
+app.register_module(...); // registers a module
+```
+```javascript
+app.unregister_module(...); // unregisters a module
+```
+
+#### Registering modules
