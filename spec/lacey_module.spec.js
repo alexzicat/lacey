@@ -24,7 +24,7 @@ describe('LaceyModule', function () {
         app.initializable_module.initialize();
 
         expect(instance.initialize).toHaveBeenCalled();
-        expect(app.initializable_module.initialized).toBe(true);
+        expect(app.initializable_module.initialized).toBe(false);
       });
     });
 
