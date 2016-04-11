@@ -15,15 +15,22 @@ Object.defineProperties(object_prototype, {
 
   'inherits_from': {
     value: function (klass) {
-      this.prototype = new (Function.bind.apply(klass, arguments))();
+      var KlassPrototype = Function.bind.apply(klass, arguments);
+
+      this.prototype = new KlassPrototype();
+      this.prototype._super = new KlassPrototype();
       this.prototype.constructor = this;
       this.prototype.is_child = this.prototype.has_parent = true;
-    }
+    },
+    writable: false,
+    enumerable: false,
+    configurable: false
   }
 });
 
 var LaceyApp,
   LaceyModule,
+  LaceyAbstactModule,
   modules,
   validate_app_name,
   validate_duplicated_module,
@@ -52,6 +59,18 @@ LaceyApp.prototype.register_module = function (module_name, parent_module, Modul
   validate_duplicated_module.call(this, module_name);
 
   this[module_name] = new LaceyModule(module_name, parent_module, Module);
+  this.modules.push(module_name);
+  modules[module_name] = Module;
+
+  return this[module_name];
+};
+
+LaceyApp.prototype.register_abstract_module = function (module_name, Module) {
+  validate_module_name.call(this, module_name);
+  validate_module_type.call(this, Module);
+  validate_duplicated_module.call(this, module_name);
+
+  this[module_name] = new LaceyAbstactModule(module_name, Module);
   this.modules.push(module_name);
   modules[module_name] = Module;
 
@@ -135,6 +154,8 @@ LaceyModule.prototype.initialize = function () {
   return instance;
 };
 
+LaceyModule.prototype.is_abstract = false;
+
 validate_parent_module_name = function (parent_module) {
   if (typeof modules[parent_module] === 'undefined') {
     throw 'InvalidParentModuleError - the parent module does not exist';
@@ -143,5 +164,19 @@ validate_parent_module_name = function (parent_module) {
   return true;
 };
 
+LaceyAbstactModule = function () {
+  this.get_instance = function () {
+    throw 'InvalidAbstractModuleMethod - an abstract module does not have an instance';
+  };
+
+  this.initialize = function () {
+    throw 'InvalidAbstractModuleMethod - an abstract module can not be initialized';
+  };
+
+  this.initialized = false;
+  this.is_abstract = true;
+};
+
+LaceyAbstactModule.inherits_from(LaceyModule);
 
 window.LaceyApp = LaceyApp;

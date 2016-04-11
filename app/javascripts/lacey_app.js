@@ -1,5 +1,6 @@
 var LaceyApp,
   LaceyModule,
+  LaceyAbstactModule,
   modules,
   validate_app_name,
   validate_duplicated_module,
@@ -28,6 +29,18 @@ LaceyApp.prototype.register_module = function (module_name, parent_module, Modul
   validate_duplicated_module.call(this, module_name);
 
   this[module_name] = new LaceyModule(module_name, parent_module, Module);
+  this.modules.push(module_name);
+  modules[module_name] = Module;
+
+  return this[module_name];
+};
+
+LaceyApp.prototype.register_abstract_module = function (module_name, Module) {
+  validate_module_name.call(this, module_name);
+  validate_module_type.call(this, Module);
+  validate_duplicated_module.call(this, module_name);
+
+  this[module_name] = new LaceyAbstactModule(module_name, Module);
   this.modules.push(module_name);
   modules[module_name] = Module;
 
@@ -118,3 +131,17 @@ validate_parent_module_name = function (parent_module) {
 
   return true;
 };
+
+LaceyAbstactModule = function () {
+  this.get_instance = function () {
+    throw 'InvalidAbstractModuleMethod - an abstract module does not have an instance';
+  };
+
+  this.initialize = function () {
+    throw 'InvalidAbstractModuleMethod - an abstract module can not be initialized';
+  };
+
+  this.initialized = undefined;
+};
+
+LaceyAbstactModule.inherits_from(LaceyModule);
