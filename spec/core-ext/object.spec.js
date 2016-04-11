@@ -16,7 +16,7 @@ describe('Object', function () {
       });
 
       it('should not be a child', function () {
-        expect(object.is_child).toBe(true);
+        expect(object.is_child).toBe(false);
       });
 
       it('should not have a parent', function () {
