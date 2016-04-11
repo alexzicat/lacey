@@ -12,15 +12,19 @@ describe('Object', function () {
       var object;
 
       beforeAll(function () {
-        object = new ChildObject()
+        object = new ChildObject();
       });
 
       it('should not be a child', function () {
-        expect(object.is_child).toBe(false);
+        expect(object.is_child).toBe(true);
       });
 
-      it('should not be a parent', function () {
+      it('should not have a parent', function () {
         expect(object.has_parent).toBe(false);
+      });
+
+      it('should not have the parent prototype accessible', function () {
+        expect(object.parent).toBe(undefined);
       });
 
       it("should have an attribute 'name' that returns 'alex'", function () {
@@ -35,7 +39,8 @@ describe('Object', function () {
     describe('When the Object instance inherits from another Object', function () {
       describe('Without receiving parameters', function () {
         var ParentObject,
-          object;
+          object,
+          parent_object;
 
         beforeAll(function () {
           ParentObject = function () {
@@ -53,6 +58,10 @@ describe('Object', function () {
 
         it('should have a parent', function () {
           expect(object.has_parent).toBe(true);
+        });
+
+        it('should have the parent prototype accessible', function () {
+          expect(object._super).toEqual(new ParentObject());
         });
 
         it("should have an attribute 'name' that returns 'alex'", function () {
@@ -81,6 +90,10 @@ describe('Object', function () {
 
         it('should have a parent', function () {
           expect(object.has_parent).toBe(true);
+        });
+
+        it('should have the parent prototype accessible', function () {
+          expect(object._super).toEqual(new ParentObject(30));
         });
 
         it("should have an attribute 'name' that returns 'alex'", function () {
